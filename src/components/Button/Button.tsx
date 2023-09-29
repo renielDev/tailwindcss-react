@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, forwardRef } from "react";
 import {cva, type VariantProps} from 'class-variance-authority'
 import { cn } from "../../shared/utils";
+import './Button.scss'
 
 const buttonVariants = cva("transition-opacity duration-300 hover:opacity-75 dark:text-white", {
   variants: {

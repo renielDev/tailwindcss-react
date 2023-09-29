@@ -56,7 +56,10 @@ function App() {
             <InputLabel label="Label" />
           </div>
           <div className='flex gap-2'>
-            <InputLabel label="Label" intent="row" />
+            <InputLabel label="Label" intent="top" />
+          </div>
+          <div className='flex gap-2'>
+            <InputLabel label="Label" intent="float" />
           </div>
         </div>
       </div>

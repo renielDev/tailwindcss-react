@@ -1,12 +1,14 @@
 import { HTMLInputTypeAttribute, InputHTMLAttributes, forwardRef } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "../../shared/utils";
+import './InputLabel.scss'
 
-const containerVariants = cva("flex", {
+const containerVariants = cva("flex group", {
   variants: {
     intent: {
-      inline: "flex-col",
-      row: "flex-row"
+      float: "pt-5 relative",
+      inline: "flex-row items-center",
+      top: "flex-col"
     },
   },
   defaultVariants: {
@@ -14,11 +16,12 @@ const containerVariants = cva("flex", {
   }
 })
 
-const inputVariants = cva("transition-opacity duration-300 hover:opacity-75", {
+const inputLabelVariants = cva("dark:text-gray-300", {
   variants: {
     intent: {
-      inline: "text-green-300",
-      row: "text-red-600 mr-2"
+      float: "floating-label",
+      inline: "mr-2",
+      top: ""
     },
   },
   defaultVariants: {
@@ -26,20 +29,23 @@ const inputVariants = cva("transition-opacity duration-300 hover:opacity-75", {
   }
 })
 
-type InputProps = VariantProps<typeof inputVariants>
+const inputVariants = cva("placeholder-transparent peer outline-none px-2 py-1 rounded-sm")
+
+type InputProps = VariantProps<typeof inputLabelVariants>
 
 interface InputLabelInterface extends InputHTMLAttributes<HTMLInputElement>, InputProps {
   label?: string;
 }
 
-
 const InputLabel = forwardRef<HTMLInputElement, InputLabelInterface>(({ label, value, onChange, intent, ...rest }, ref) => {
-  const _inputClassName = cn(inputVariants({ intent }))
+  const _inputLabelClassName = cn(inputLabelVariants({ intent }))
   const _containerClassName = cn(containerVariants({ intent }))
+  const _inputClassName = cn(inputVariants());
 
   return <div className={_containerClassName}>
-    <label className={_inputClassName}>{label}</label>
-    <input value={value} onChange={onChange} ref={ref} {...rest} />
+    {intent !== 'float' && <label className={_inputLabelClassName}>{label}</label>}
+    <input className={_inputClassName} placeholder="..." value={value} onChange={onChange} ref={ref} {...rest} />
+    {intent === 'float' && <label className={_inputLabelClassName}>{label}</label>}
   </div>
 })
 

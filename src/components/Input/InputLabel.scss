@@ -1,0 +1,7 @@
+
+
+.floating-label {
+  @apply absolute -top-0.5 text-gray-300 left-0 text-sm;
+  @apply peer-placeholder-shown:top-6 peer-placeholder-shown:text-black peer-placeholder-shown:text-base  peer-placeholder-shown:left-2;
+  @apply transition-all duration-300;
+}
