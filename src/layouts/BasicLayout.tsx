@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from '../shared/utils';
 
 interface ToggleButtonProps {
