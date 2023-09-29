@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Button from '../components/Button/Button'
 import InputLabel from '../components/Input/InputLabel'
 

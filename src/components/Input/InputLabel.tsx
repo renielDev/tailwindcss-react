@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute, InputHTMLAttributes, forwardRef } from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "../../shared/utils";
 import './InputLabel.scss'
