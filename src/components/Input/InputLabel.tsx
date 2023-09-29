@@ -44,7 +44,7 @@ const InputLabel = forwardRef<HTMLInputElement, InputLabelInterface>(({ label, v
 
   return <div className={_containerClassName}>
     {intent !== 'float' && <label className={_inputLabelClassName}>{label}</label>}
-    <input className={_inputClassName} placeholder="..." value={value} onChange={onChange} ref={ref} {...rest} />
+    <input className={_inputClassName} placeholder={label} value={value} onChange={onChange} ref={ref} {...rest} />
     {intent === 'float' && <label className={_inputLabelClassName}>{label}</label>}
   </div>
 })
