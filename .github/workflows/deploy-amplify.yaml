@@ -33,4 +33,4 @@ jobs:
     
     - name: Trigger Amplify Deployment
       run: |
-        aws amplify start-job --app-id ${{ secrents.AWS_AMPLIFY_APP_ID }} --branch-name main --job-type RELEASE
+        aws amplify start-job --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name main --job-type RELEASE
